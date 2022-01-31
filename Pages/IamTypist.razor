@@ -1,0 +1,50 @@
+<span>@currentString</span><span class="blinking">|</span>
+
+@code {
+    private readonly string[] iam = new string[]
+        {
+" a level-42 pigeon enthusiast.",
+" a maker and a breaker.",
+" a non-competitive competitive programmer.",
+".",
+" bullied by scary maths sometimes.",
+" awesome.",
+        };
+
+    private int idx = 0;
+    private readonly int typeTime = 50;
+    private readonly int waitTime = 3000;
+    private string currentString = "";
+    private bool reversing = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        while (true)
+        {
+            if (reversing)
+            {
+                currentString = currentString.Remove(currentString.Length - 1);
+                StateHasChanged();
+                await Task.Delay(typeTime);
+                if (currentString.Length == 0)
+                {
+                    reversing = false;
+                    idx++;
+                    if (idx == iam.Length)
+                        idx = 0;
+                }
+            }
+            else
+            {
+                currentString += iam[idx][currentString.Length];
+                StateHasChanged();
+                await Task.Delay(typeTime);
+                if (currentString.Length == iam[idx].Length)
+                {
+                    reversing = true;
+                    await Task.Delay(waitTime);
+                }
+            }
+        }
+    }
+}

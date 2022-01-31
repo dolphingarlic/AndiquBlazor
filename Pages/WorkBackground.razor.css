@@ -1,0 +1,13 @@
+.work-background-container {
+    position: fixed;
+    top: -50vh;
+    left: -50vw;
+    height: 200vh;
+    width: 200vw;
+    overflow: hidden;
+    color: #e3e3e3;
+    font-size: 1.5rem;
+    transform: rotate(27.8deg);
+    font-weight: bolder;
+    font-family: 'Fira Sans', sans-serif;
+}

@@ -1,0 +1,14 @@
+#main-greeting {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.centred {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
